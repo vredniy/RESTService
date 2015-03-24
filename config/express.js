@@ -25,6 +25,10 @@ module.exports = function(app, config) {
   app.use(cookieParser());
   app.use(compress());
   app.use(express.static(config.root + '/public'));
+
+  // bower components managment
+  app.use('/components',  express.static(config.root + '/public/components'));
+
   app.use(methodOverride());
 
   var controllers = glob.sync(config.root + '/app/controllers/**/*.js');

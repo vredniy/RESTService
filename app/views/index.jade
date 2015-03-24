@@ -1,10 +1,56 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  
-  ul
-    each article in articles
-      li= article.title
+  section#contact
+    .container
+        .row
+          .col-lg-12.text-center
+            h2 Article Form
+            hr.star-primary
+        .row
+          .col-lg-8.col-lg-offset-2
+            form#contactForm(name='articleForm', novalidate='')
+              .row.control-group
+                .form-group.col-xs-12.floating-label-form-group.controls
+                  label Title
+                  input#name.form-control(type='text', placeholder='Title', required='')
+
+              .row.control-group
+                .form-group.col-xs-12.floating-label-form-group.controls
+                  label Url
+                  input#email.form-control(type='text', placeholder='Url', required='')
     
+              .row.control-group
+                .form-group.col-xs-12.floating-label-form-group.controls
+                  label Text
+                  textarea#text.form-control(rows='5', placeholder='Text', required='')
+              br
+              #success
+              .row
+                .form-group.col-xs-12
+                  button.btn.btn-success.btn-lg(type='submit') Save
+
+  section#articles
+    .container
+      .row
+        .col-lg-12.text-center
+          h2 Articles
+      table.table.table-striped.table-hover.table-condensed
+        thead
+          tr
+            th #
+            th Title
+            th Url
+            th Text
+            th
+        tbody
+          each article in articles
+            tr
+              td= article.id
+              td= article.title
+              td= article.url
+              td= article.text
+              td
+                a.btn.btn-info.btn-xs Edit
+                &nbsp;
+                a.btn.btn-danger.btn-xs Destroy
