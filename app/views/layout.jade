@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en', ng-app='articlesApp')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
@@ -11,5 +11,18 @@ html(lang='en')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
-    block content
+    //- block content
+    ng-view
+
+    ul
+      li
+        a(href='#/articles/new') New Article
+      li
+        a(href='#/articles') Articles
+
+    script(src='/components/angular/angular.js')
+    script(src='/components/angular-route/angular-route.js')
+
+    script(src='/components/lodash/lodash.js')
+    script(src='/js/app.js')
     //- javascript(src='/components/jquery/dist/jquery.js')
