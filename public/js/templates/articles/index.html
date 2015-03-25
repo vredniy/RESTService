@@ -18,10 +18,14 @@
       <tbody>
         <tr ng-repeat="article in articles">
           <td>{{ article._id }}</td>
-          <td>{{ article.title }}</td>
+          <td><a href="#/articles/{{ article._id }}">{{ article.title }}</a></td>
           <td>{{ article.url }}</td>
           <td>{{ article.text }}</td>
-          <td><a class="btn btn-info btn-xs" href="#/articles/{{ article._id }}/edit">Edit</a>&nbsp;<a class="btn btn-danger btn-xs">Destroy</a></td>
+          <td>
+            <a class="btn btn-info btn-xs" href="#/articles/{{ article._id }}/edit">Edit</a>
+            &nbsp;
+            <a class="btn btn-danger btn-xs" ng-click="destroyArticle(article)">Destroy</a>
+          </td>
         </tr>
       </tbody>
     </table>

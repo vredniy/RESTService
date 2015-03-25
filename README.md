@@ -7,4 +7,9 @@ To start the project you should follow these steps:
 * start **mongodb**
 * `gulp` for serving assets and starting server
 
+### Testing
+
+* `npm install -g karma-cli`
+* `karma start test/karma.conf.js`
+
 ![Simple mainpage (static)](screenshots/static_mainpage.png)
