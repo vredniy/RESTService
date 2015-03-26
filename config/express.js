@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 
+var cors = require('cors');
+
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
@@ -17,6 +19,9 @@ module.exports = function(app, config) {
   app.locals.ENV_DEVELOPMENT = env == 'development';
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
+  // CORS
+  app.use(cors());
+
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
